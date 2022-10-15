@@ -19,13 +19,6 @@ const mixedset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789
 
 var seededRand *rand.Rand = rand.New(rand.NewSource(time.Now().UnixNano()))
 
-// func info() {
-// 	app.Name = "Simple Password generator CLI"
-// 	app.Usage = "An example CLI for generating a simple password"
-// 	app.Author = "uzxrk"
-// 	app.Version = "1.0.0"
-// }
-
 func StringWithAlphaset(length int, alphaset string) string {
 	b := make([]byte, length)
 	for i := range b {
@@ -49,53 +42,6 @@ func StringWithMixedset(length int, mixedset string) string {
 	}
 	return string(b)
 }
-
-// func commands() {
-// 	app.Commands = []cli.Command{
-// 		{
-// 			Name:    "alpha",
-// 			Aliases: []string{"a"},
-// 			Usage:   "Generate a random alphabetic password.",
-// 			SubCommands: []cli.Command{
-// 				{
-// 					Name:  num,
-// 					Usage: fmt.Sprintf("Generate a password with length of %d characters.", num),
-// 					Action: func(c *cli.Context) string {
-// 						return StringWithAlphaset(num, alphaset)
-// 					},
-// 				},
-// 			},
-// 		},
-// 		{
-// 			Name:    "alphanum",
-// 			Aliases: []string{"an"},
-// 			Usage:   "Generate a random alpha-numeric password.",
-// 			SubCommands: []cli.Command{
-// 				{
-// 					Name:  num,
-// 					Usage: fmt.Sprintf("Generate a password with length of %d characters.", num),
-// 					Action: func(c *cli.Context) string {
-// 						return StringWithCharset(num, charset)
-// 					},
-// 				},
-// 			},
-// 		},
-// 		{
-// 			Name:    "mixed",
-// 			Aliases: []string{"mx"},
-// 			Usage:   "Generate a random alpha-numeric password with special characters.",
-// 			SubCommands: []cli.Command{
-// 				{
-// 					Name:  num,
-// 					Usage: fmt.Sprintf("Generate a password with length of %d characters.", num),
-// 					Action: func(c *cli.Context) string {
-// 						return StringWithMixedset(num, mixedset)
-// 					},
-// 				},
-// 			},
-// 		},
-// 	}
-// }
 
 func main() {
 	app := &cli.App{
