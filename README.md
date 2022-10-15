@@ -1,7 +1,5 @@
 # Passo 🔑🛂
 
----
-
 #### A CLI-based Random Password Generator, made with ❤. (JK, its GoLang)
 
 ## Usage:
