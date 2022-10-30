@@ -5,6 +5,7 @@
 I made this password generator just to get me started in Golang instead of being stuck in courses. All opinions || suggestions || change requests are welcome!
 
 ## Installation:
+> Note: Make sure you have Go installed on your machine before going off with the installation steps.
 ```bash
 git clone https://github.com/uzxrk/passo.git
 cd passo
