@@ -11,8 +11,6 @@ import (
 	"github.com/urfave/cli/v2"
 )
 
-var num = 6
-
 const alphaset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 const mixedset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789~`!@#$%^&*()_-+={[}]|\\:;\"'<,>.?/"
@@ -44,6 +42,7 @@ func StringWithMixedset(length int, mixedset string) string {
 }
 
 func main() {
+	num := os.Args[2]
 	app := &cli.App{
 		Name:  "passo",
 		Usage: "Simple Password generator CLI",
@@ -61,10 +60,14 @@ func main() {
 				Usage:   "Generate a random alphabetic password.",
 				Subcommands: []*cli.Command{
 					{
-						Name:  strconv.Itoa(num),
-						Usage: fmt.Sprintf("Generate a password with length of %d characters.", num),
+						Name:  num,
+						Usage: fmt.Sprintf("Generate a password with length of %s characters.", num),
 						Action: func(cCtx *cli.Context) error {
-							StringWithAlphaset(num, alphaset)
+							passLen, err := strconv.Atoi(num)
+							if err != nil {
+								panic(err)
+							}
+							fmt.Println(StringWithAlphaset(passLen, alphaset))
 							return nil
 						},
 					},
@@ -76,10 +79,14 @@ func main() {
 				Usage:   "Generate a random alpha-numeric password.",
 				Subcommands: []*cli.Command{
 					{
-						Name:  strconv.Itoa(num),
-						Usage: fmt.Sprintf("Generate a password with length of %d characters.", num),
+						Name:  num,
+						Usage: fmt.Sprintf("Generate a password with length of %s characters.", num),
 						Action: func(cCtx *cli.Context) error {
-							StringWithCharset(num, charset)
+							passLen, err := strconv.Atoi(num)
+							if err != nil {
+								panic(err)
+							}
+							fmt.Println(StringWithCharset(passLen, charset))
 							return nil
 						},
 					},
@@ -91,10 +98,14 @@ func main() {
 				Usage:   "Generate a random alpha-numeric password with special characters.",
 				Subcommands: []*cli.Command{
 					{
-						Name:  strconv.Itoa(num),
-						Usage: fmt.Sprintf("Generate a password with length of %d characters.", num),
-						Action: func(c *cli.Context) error {
-							StringWithMixedset(num, mixedset)
+						Name:  num,
+						Usage: fmt.Sprintf("Generate a password with length of %s characters.", num),
+						Action: func(cCtx *cli.Context) error {
+							passLen, err := strconv.Atoi(num)
+							if err != nil {
+								panic(err)
+							}
+							fmt.Println(StringWithMixedset(passLen, mixedset))
 							return nil
 						},
 					},
