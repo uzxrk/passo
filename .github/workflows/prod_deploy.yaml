@@ -1,0 +1,14 @@
+name: main Pipeline
+
+on:
+  workflow_dispatch:
+
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Go CI
+        uses: ghacts/go@v1.0.0
